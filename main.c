@@ -3,6 +3,6 @@
 
 int	main(int ac, char **av)
 {
-	printf("%s%s", av[1], av[2]);
+	printf("%10.5d", atoi(av[1]));
 	return (0);
 }
