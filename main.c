@@ -3,6 +3,6 @@
 
 int	main(int ac, char **av)
 {
-	printf("%s", av[1]);
+	printf("%s%s", av[1], av[2]);
 	return (0);
 }
