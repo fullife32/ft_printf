@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2019/11/27 18:44:21 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/03 14:00:14 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 typedef struct	s_list
 {
-	char c;
-}				t_list;
+	int	rv;
+	
+}				t_data;
 
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *str, ...);
 
 #endif
