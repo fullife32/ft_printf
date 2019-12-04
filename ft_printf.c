@@ -12,16 +12,22 @@
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *s, t_data *link)
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
+	while (s[i] != '\0')
 		i++;
-	}
+	return (i);
+}
+
+void	ft_putstr(char *s, t_data *link)
+{
+	int	i;
+
+	i = ft_strlen(s);
+	write(1, s, i);
 	link->rv += i;
 }
 
@@ -78,9 +84,8 @@ int	ft_printf(const char *str, ...)
 		return (-1);
 	i = 0;
 	link->rv = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		// printf("[%c]\n", str[i]);
 		if (str[i] == '%')
 		{
 			i++;
@@ -89,10 +94,10 @@ int	ft_printf(const char *str, ...)
 			else if (str[i] == 's')
 				ft_putstr(va_arg(ap, char *), link);
 			else if (str[i] == 'd' || str[i] == 'i')
-				if (ft_itoa(va_arg(ap, int), link) == 0)
+				if (ft_itoa(va_arg(ap, int), link) == -1)
 					return (-1);
 		}
-		else
+		else if (str[i] != '%')
 		{
 			write(1, &str[i], 1);
 			link->rv++;

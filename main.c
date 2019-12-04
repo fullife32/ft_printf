@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 
-int	main(int ac, char **av)
+int	main()
 {
-	ft_printf("bonjour%s%dsalut\n\n", " toi\n", -2147483648);
+	ft_printf("%d", ft_printf("bonjour%s%d\nsalut\n%sok", " toi\n", -2147483648, "it's "));
 	return (0);
 }
