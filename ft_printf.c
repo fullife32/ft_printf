@@ -97,7 +97,7 @@ int	ft_printf(const char *str, ...)
 				if (ft_itoa(va_arg(ap, int), link) == -1)
 					return (-1);
 		}
-		else if (str[i] != '%')
+		else
 		{
 			write(1, &str[i], 1);
 			link->rv++;
