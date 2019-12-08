@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/03 14:41:26 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/08 14:37:54 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	ft_putstr(char *s, t_data *link)
 
 	i = ft_strlen(s);
 	write(1, s, i);
-	link->rv += i;
+	link->n += i;
 }
 
 void	ft_putchar(char c, t_data *link)
 {
 	write(1, &c, 1);
-	link->rv += 1;
+	link->n += 1;
 }
 
 static int	ft_intcount(unsigned int n)
@@ -83,7 +83,7 @@ int	ft_printf(const char *str, ...)
 	if (!(link = malloc(sizeof(t_data))))
 		return (-1);
 	i = 0;
-	link->rv = 0;
+	link->n = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
@@ -100,12 +100,12 @@ int	ft_printf(const char *str, ...)
 		else
 		{
 			write(1, &str[i], 1);
-			link->rv++;
+			link->n++;
 		}
 		i++;
 	}
 	va_end(ap);
-	i = link->rv;
+	i = link->n;
 	free(link);
 	return (i);
 }
