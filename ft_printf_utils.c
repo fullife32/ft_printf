@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/08 14:35:39 by eassouli         ###   ########.fr       */
+/*   Created: 2019/12/08 20:22:08 by eassouli          #+#    #+#             */
+/*   Updated: 2019/12/08 20:22:21 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#define BUFFER_SIZE 64
-
-typedef struct	s_data
+int	ft_error(t_data **data)
 {
-	int		n;
-	int		i;
-	int		prec;
-	int		neg;
-	char	buffer[BUFFER_SIZE];
-}				t_data;
+	if (*data)
+		free(*data);
+	*data = NULL;
+	return (-1);
+}
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+size_t	ft_strlen(const char *s)
+{
+	int	i;
 
-int		ft_printf(const char *str, ...);
-
-#endif
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}

@@ -1,10 +1,9 @@
-gcc -Wall -Wextra -Werror ft_printf.c main.c -I
+gcc -Wall -Wextra -Werror *.c -I
 ./a.out < . > result_mine
 
 rm -f a.out
 
-cp ft_printf.h real/
-gcc -Wall -Wextra -Werror real/main2.c -I
+gcc -Wall -Wextra -Werror real/main2.c
 ./a.out < . > result_real
 
 rm -f a.out
