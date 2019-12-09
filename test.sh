@@ -1,12 +1,13 @@
-gcc -Wall -Wextra -Werror *.c -I
-./a.out < . > result_mine
+gcc -g -Wall -Wextra -Werror *.c
+./a.out > result_mine
 
 rm -f a.out
+rm -rf a.out.dSYM/
 
-gcc -Wall -Wextra -Werror real/main2.c
-./a.out < . > result_real
+gcc -Wall -Wextra -Werror real/main2.c -o real.out
+./real.out > result_real
 
-rm -f a.out
+rm -f real.out
 
 echo "Mine :"
 echo "-----------------------------------"
