@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 14:32:03 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/08 20:15:27 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/09 20:53:24 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,16 @@ void	ft_strtobuffer(char *s, t_data *data)
 	{
 		if (data->i == BUFFER_SIZE)
 			ft_writebuffer(data);
-		data->buffer[data->i++] = s[i++];
-		data->n++;
+		data->buffer[data->i] = s[i];
+		data->i++;
+		i++;
 	}
 }
 
 void	ft_writebuffer(t_data *data)
 {
-	int	i;
-
-	i = 0;
 	write(1, &data->buffer, data->i);
+	data->n += data->i;
 	ft_cleanbuffer(data);
 }
 

@@ -37,7 +37,7 @@ int	ft_printf(const char *str, ...)
 				if (ft_itoa(va_arg(ap, int), data) == -1)
 					return (ft_error(&data));
 		}
-		else
+		else if (str[i] != '\0')
 			ft_putchar(str[i], data);
 		if (str[i] != '\0')
 			i++;

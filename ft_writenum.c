@@ -6,15 +6,15 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/08 20:18:54 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/09 20:56:33 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_intcount(unsigned int n)
+int		ft_intcount(unsigned int n)
 {
-	int count;
+	int				count;
 
 	count = 0;
 	while (n != 0)

@@ -6,13 +6,13 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:22:08 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/08 20:22:21 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/09 20:54:38 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_error(t_data **data)
+int		ft_error(t_data **data)
 {
 	if (*data)
 		free(*data);
