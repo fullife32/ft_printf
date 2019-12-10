@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/10 01:03:03 by eassouli          #+#    #+#              #
-#    Updated: 2019/12/10 03:38:22 by eassouli         ###   ########.fr        #
+#    Updated: 2019/12/10 18:34:28 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,12 @@ ECHO = "[`expr $C '*' 100 / $T`%]"
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-	@ar rc $(NAME) $(OBJS) && echo "$(_GREEN)[100%] LIBFT Compilation Success$(_ENDL)"
+	@ar rc $(NAME) $(OBJS) && echo "$(_GREEN)[100%] Compilation Success$(_ENDL)"
 	@ranlib $(NAME)
 
 %.o:		%.c
 	@$(CC) $(FLAGS) -o $@ -c $<
-	@printf "%-60b\r" "$(_GREEN)$(ECHO)$(_CYAN) Compilation $@"
+	@printf "%b\n" "$(_GREEN)$(ECHO)$(_CYAN) Compiling $@"
 
 clean:
 	$(RM) $(OBJS)
@@ -59,4 +59,24 @@ re:			fclean all
 .PHONY:		all clean fclean re
 
 f: all
-	@./test.sh
+	@gcc -g -Wall -Wextra -Werror ft_printf.a main/main.c -o mine.out
+	@./mine.out > result_mine
+	@rm -f mine.out
+	@rm -rf mine.out.dSYM/
+	@gcc -Wall -Wextra -Werror main/main2.c -o real.out
+	@./real.out > result_real
+	@rm -f real.out
+	@echo "Mine :"
+	@echo "-----------------------------------"
+	@cat result_mine
+	@echo "\n-----------------------------------\n"
+	@echo "Real :"
+	@echo "-----------------------------------"
+	@cat result_real
+	@echo "\n-----------------------------------\n"
+	@echo "Diff :"
+	@echo "===================================$(_RED)"
+	@diff result_mine result_real
+	@echo "$(_ENDL)==================================="
+	@rm -f result_mine
+	@rm -f result_real

@@ -1,8 +1,8 @@
 gcc -g -Wall -Wextra -Werror ft_printf.a main/main.c -o mine.out
 ./mine.out > result_mine
 
-# rm -f mine.out
-# rm -rf mine.out.dSYM/
+rm -f mine.out
+rm -rf mine.out.dSYM/
 
 gcc -Wall -Wextra -Werror main/main2.c -o real.out
 ./real.out > result_real
