@@ -1,10 +1,10 @@
-gcc -g -Wall -Wextra -Werror *.c
-./a.out > result_mine
+gcc -g -Wall -Wextra -Werror ft_printf.a main/main.c -o mine.out
+./mine.out > result_mine
 
-rm -f a.out
-rm -rf a.out.dSYM/
+# rm -f mine.out
+# rm -rf mine.out.dSYM/
 
-gcc -Wall -Wextra -Werror real/main2.c -o real.out
+gcc -Wall -Wextra -Werror main/main2.c -o real.out
 ./real.out > result_real
 
 rm -f real.out

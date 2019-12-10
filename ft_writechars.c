@@ -6,13 +6,13 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 19:40:22 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/09 20:54:04 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/10 05:17:45 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c, t_data *data)
+void	ft_putchar(int c, t_data *data)
 {
 	if (data->i == BUFFER_SIZE)
 		ft_writebuffer(data);
