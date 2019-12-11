@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 14:32:03 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/09 23:31:33 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/11 18:48:49 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	ft_cleanbuffer(t_data *data)
 	int	i;
 
 	i = 0;
-	data->i = 0;
-	while (i <= BUFFER_SIZE)
+	while (i < data->i)
 	{
 		data->buffer[i] = 0;
 		i++;
 	}
+	data->i = 0;
 }

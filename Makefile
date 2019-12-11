@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/10 01:03:03 by eassouli          #+#    #+#              #
-#    Updated: 2019/12/10 18:34:28 by eassouli         ###   ########.fr        #
+#    Updated: 2019/12/11 18:41:30 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,8 @@ $(NAME):	$(OBJS)
 
 %.o:		%.c
 	@$(CC) $(FLAGS) -o $@ -c $<
-	@printf "%b\n" "$(_GREEN)$(ECHO)$(_CYAN) Compiling $@"
-
+	@printf "%-60b\r" "$(_GREEN)$(ECHO)$(_CYAN) Compiling $@"
+	
 clean:
 	$(RM) $(OBJS)
 
