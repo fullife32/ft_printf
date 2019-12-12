@@ -6,13 +6,13 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/11 22:52:13 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/12 14:43:23 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define BUFFER_SIZE 32
+# define BUFFER_SIZE 128
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -21,17 +21,17 @@
 
 typedef struct	s_data
 {
-	int		i;
-	int		n;
-	int		precision;
+	int		index;
+	int		size;
 	int		width;
+	int		precision;
 	char	buffer[BUFFER_SIZE + 1];
 }				t_data;
 
 int				ft_error(t_data **data);
 size_t			ft_strlen(const char *s);
 int				ft_intcount(unsigned long long n);
-void			ft_itoa(long long n, t_data *data);
+void			ft_putnbr(long long n, t_data *data);
 void			ft_putchar(int c, t_data *data);
 void			ft_putstr(char *s, t_data *data);
 void			ft_strtobuffer(char *s, t_data *data);

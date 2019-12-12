@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/10 05:26:28 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/12 14:43:50 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_intcount(unsigned long long n)
 	return (count);
 }
 
-void	ft_itoa(long long n, t_data *data)
+void	ft_putnbr(long long n, t_data *data)
 {
 	unsigned long long	num;
 	int					count;
@@ -36,7 +36,7 @@ void	ft_itoa(long long n, t_data *data)
 		ft_putchar('-', data);
 	if (num /= 10 != 0)
 	{
-		ft_itoa(num / 10, data);
+		ft_putnbr(num / 10, data);
 		ft_putchar(num % 10 + '0', data);
 	}
 }
