@@ -6,11 +6,12 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:48:49 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/11 18:52:01 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/11 23:09:35 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {

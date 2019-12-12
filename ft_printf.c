@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/11 18:48:15 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/11 23:00:38 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,32 @@ int	ft_printf(const char *str, ...)
 		return (ft_error(&data));
 	va_start(ap, str);
 	i = 0;
+	data->i = 0;
 	data->n = 0;
-	ft_cleanbuffer(data);
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			i++;
-			
+			str++;
 			if (str[i] == 'c')
 				ft_putchar(va_arg(ap, int), data);
 			else if (str[i] == 's')
 				ft_putstr(va_arg(ap, char *), data);
 			else if (str[i] == 'p')
-				ft_putstr("ceci n'a pas encore ete fait alors fait le flag p", data);
+				ft_putstr("", data);
 			else if (str[i] == 'd' || str[i] == 'i' || str[i] == 'u')
 				ft_itoa(va_arg(ap, int), data);
 			else if (str[i] == 'x')
-				ft_putstr("ceci n'a pas encore ete fait alors fait le flag x", data);
+				ft_putstr("", data);
 			else if (str[i] == 'X')
-				ft_putstr("ceci n'a pas encore ete fait alors fait le flag X", data);
+				ft_putstr("", data);
 			else if (str[i] == '%')
 				ft_putchar(str[i], data);
 		}
 		else
-			ft_putchar(str[i], data);
-		if (str[i] != '\0')
-			i++;
+			ft_putchar(*str, data);
+		if (*str != '\0')
+			str++;
 		data->width = 0;
 		data->precision = 0;
 	}

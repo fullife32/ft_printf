@@ -6,13 +6,13 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/10 05:17:53 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/11 22:52:13 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define BUFFER_SIZE 128
+# define BUFFER_SIZE 32
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -36,7 +36,6 @@ void			ft_putchar(int c, t_data *data);
 void			ft_putstr(char *s, t_data *data);
 void			ft_strtobuffer(char *s, t_data *data);
 void			ft_writebuffer(t_data *data);
-void			ft_cleanbuffer(t_data *data);
 int				ft_printf(const char *str, ...);
 
 #endif
