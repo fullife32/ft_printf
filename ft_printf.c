@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/12 14:43:39 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/30 20:41:11 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ int	ft_printf(const char *str, ...)
 			else if (str[i] == 's')
 				ft_putstr(va_arg(ap, char *), data);
 			else if (str[i] == 'p')
-				ft_putstr("", data);
+				ft_putnbr_base(va_arg(ap, int), 2, data);
 			else if (str[i] == 'd' || str[i] == 'i' || str[i] == 'u')
 				ft_putnbr(va_arg(ap, int), data);
 			else if (str[i] == 'x')
-				ft_putstr("", data);
+				ft_putnbr_base(va_arg(ap, int), 0, data);
 			else if (str[i] == 'X')
-				ft_putstr("", data);
+				ft_putnbr_base(va_arg(ap, int), 1, data);
 			else if (str[i] == '%')
 				ft_putchar(str[i], data);
 		}
