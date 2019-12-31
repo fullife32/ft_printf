@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/30 20:47:48 by eassouli         ###   ########.fr       */
+/*   Updated: 2019/12/31 12:22:10 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,37 @@ void	ft_putnbr(long long n, t_data *data)
 	}
 }
 
-void	ft_putnbr_base(long long n, int up, t_data *data)
+void	ft_putnbr_basep(long long n, int up, t_data *data)
 {
 	unsigned long long	num;
 
 	num = n < 0 ? -n : n;
-	if (n < 0)
-		ft_putchar('-', data);
-	if (up == 2 && (up = 0) == 0)
+	if (up == 1 && !(up = 0))
 		ft_putstr("0x", data);
-	if (num /= 16 != 0)
+	if (num >= 16)
 	{
-		ft_putnbr_base(num / 16, up, data);
+		ft_putnbr_basep(num / 16, up, data);
+		ft_putchar(HEXA_LOW[num % 16], data);
+	}
+	else
+		ft_putchar(HEXA_LOW[num % 16], data);
+}
+
+void	ft_putnbr_basex(int n, int up, t_data *data)
+{
+	unsigned int	num;
+
+	num = n;
+	if (num >= 16)
+	{
+		ft_putnbr_basex(num / 16, up, data);
 		if (up == 1)
 			ft_putchar(HEXA_UPP[num % 16], data);
 		else
 			ft_putchar(HEXA_LOW[num % 16], data);
 	}
+	else if (up == 1)
+		ft_putchar(HEXA_UPP[num % 16], data);
+	else if (up == 0)
+		ft_putchar(HEXA_LOW[num % 16], data);
 }
