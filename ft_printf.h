@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/31 11:58:43 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/07 15:27:56 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct	s_data
 	int		size;
 	int		width;
 	int		precision;
+	int		minus;
+	int		zero;
 	char	buffer[BUFFER_SIZE + 1];
 }				t_data;
 

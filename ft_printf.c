@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/06 18:48:37 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/07 15:31:01 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 void	ft_init_values(t_data *data)
 {
-	data->index = 0;
-	data->size = 0;
-	data->width = 0;
-	data->precision = 0;
+	data->index = -1;
+	data->size = -1;
+	data->width = -1;
+	data->precision = -1;
+	data->minus = -1;
+	data->zero = -1;
+}
+
+char	*ft_check_flags(const char *str, t_data *data)
+{
+	if (*str == '-')
+		data->minus = 1;
+	return (str);
 }
 
 int	ft_printf(const char *str, ...)
