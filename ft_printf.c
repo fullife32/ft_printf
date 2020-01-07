@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/07 15:31:01 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/07 17:00:37 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,29 @@ void	ft_init_values(t_data *data)
 	data->zero = -1;
 }
 
-char	*ft_check_flags(const char *str, t_data *data)
+char	*ft_check_flags(char *str, t_data *data)
 {
 	if (*str == '-')
 		data->minus = 1;
 	return (str);
+}
+
+void	ft_check_arg(const char *str, t_data *data, va_list ap)
+{
+	if (*str == 'c')
+		ft_putchar(va_arg(ap, int), data);
+	else if (*str == 's')
+		ft_putstr(va_arg(ap, char *), data);
+	else if (*str == 'p')
+		ft_putnbr_basep(va_arg(ap, long long), 1, data);
+	else if (*str == 'd' || *str == 'i' || *str == 'u')
+		ft_putnbr(va_arg(ap, int), data);
+	else if (*str == 'x')
+		ft_putnbr_basex(va_arg(ap, int), 0, data);
+	else if (*str == 'X')
+		ft_putnbr_basex(va_arg(ap, int), 1, data);
+	else if (*str == '%')
+		ft_putchar(*str, data);
 }
 
 int	ft_printf(const char *str, ...)
@@ -42,20 +60,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			if (*str == 'c')
-				ft_putchar(va_arg(ap, int), &data);
-			else if (*str == 's')
-				ft_putstr(va_arg(ap, char *), &data);
-			else if (*str == 'p')
-				ft_putnbr_basep(va_arg(ap, long long), 1, &data);
-			else if (*str == 'd' || *str == 'i' || *str == 'u')
-				ft_putnbr(va_arg(ap, int), &data);
-			else if (*str == 'x')
-				ft_putnbr_basex(va_arg(ap, int), 0, &data);
-			else if (*str == 'X')
-				ft_putnbr_basex(va_arg(ap, int), 1, &data);
-			else if (*str == '%')
-				ft_putchar(*str, &data);
+			ft_check_arg(str, &data, ap);
 		}
 		else
 			ft_putchar(*str, &data);
