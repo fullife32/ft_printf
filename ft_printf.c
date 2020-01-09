@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/07 17:00:37 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/09 17:36:48 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,21 @@ void	ft_init_values(t_data *data)
 	data->zero = -1;
 }
 
+int		ft_isarg(char *str)
+{
+	if (*str == 'c' || *str == 's' || *str == 'p' || *str == 'd' || *str == 'i'
+	|| *str == 'u' || *str == 'x' || *str == 'X' || *str == '%')
+		return (1);
+	return (-1);
+}
+
 char	*ft_check_flags(char *str, t_data *data)
 {
-	if (*str == '-')
-		data->minus = 1;
+	while (*str && ft_isarg(str) == -1)
+	{
+		if (*str == '-')
+			data->minus = 1;
+	}
 	return (str);
 }
 
@@ -47,7 +58,7 @@ void	ft_check_arg(const char *str, t_data *data, va_list ap)
 		ft_putchar(*str, data);
 }
 
-int	ft_printf(const char *str, ...)
+int		ft_printf(const char *str, ...)
 {
 	t_data	data;
 	va_list	ap;
@@ -60,13 +71,13 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
+			str = ft_check_flags(str, &data);
 			ft_check_arg(str, &data, ap);
 		}
 		else
 			ft_putchar(*str, &data);
 		if (*str != '\0')
 			str++;
-		
 	}
 	va_end(ap);
 	ft_writebuffer(&data);
