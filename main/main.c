@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:54:25 by eassouli          #+#    #+#             */
-/*   Updated: 2019/12/31 12:15:30 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/13 17:36:01 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int	main(void)
 	ft_printf("%d", ft_printf("salut%d\n", 184467));
 	ft_printf("%x et %X et %x", 123456, -1234567890, 0);
 	ft_printf(" <- %d", ft_printf("\n%p", NULL));
+	ft_printf("\nBonjour %10s %-10s, %5c%-5c\n", "Salut", "ok", 'O', 'K');
+	ft_printf("%10d et %5d", -47, 3);
 	return (0);
 }
