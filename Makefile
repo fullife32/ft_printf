@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/10 01:03:03 by eassouli          #+#    #+#              #
-#    Updated: 2019/12/18 21:02:54 by eassouli         ###   ########.fr        #
+#    Updated: 2020/01/14 17:21:00 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,13 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+t: all
+	make fclean -C Test-42/test_printf_classic/
+	cp libftprintf.a Test-42/test_printf_classic/
+	make -C Test-42/test_printf_classic/
+	./Test-42/test_printf_classic/ft_printf_tests
+	rm rslt_trace.txt
 
 f: all
 	@gcc -g -Wall -Wextra -Werror libftprintf.a main/main.c -o mine.out

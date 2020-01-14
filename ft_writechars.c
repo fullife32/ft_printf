@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 19:40:22 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/14 16:25:42 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/14 17:12:04 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,18 @@ void	ft_putstr_lobby(char *s, t_data *data)
 {
 	if (data->width != -1 && data->minus != 1)
 		ft_putspaces(data->width - ft_strlen(s), data);
-	ft_putstr2(s, data);
+	// printf("Deso Jessy : %s\n", s);
+	if (s == NULL)
+		ft_putstr2("(null)", data);
+	else
+		ft_putstr2(s, data);
 	if (data->width != -1 && data->minus == 1)
 		ft_putspaces(data->width - ft_strlen(s), data);
 }
 
 void	ft_putstr2(char *s, t_data *data)
 {
-	while (*s)
+	while (s != NULL && *s)
 	{
 		if (data->index == BUFFER_SIZE)
 			ft_writebuffer(data);
