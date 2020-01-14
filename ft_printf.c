@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/13 17:24:33 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/14 16:21:34 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ const char	*ft_check_flags(const char *str, t_data *data)
 void	ft_check_arg(const char *str, t_data *data, va_list ap)
 {
 	if (*str == 'c')
-		ft_putchar(va_arg(ap, int), data);
+		ft_putchar_lobby(va_arg(ap, int), data);
 	else if (*str == 's')
-		ft_putstr(va_arg(ap, char *), data);
+		ft_putstr_lobby(va_arg(ap, char *), data);
 	else if (*str == 'p')
 		ft_putnbr_basep(va_arg(ap, long long), 1, data);
 	else if (*str == 'd' || *str == 'i' || *str == 'u')
-		ft_putnbr(va_arg(ap, int), data);
+		ft_putnbr_lobby(va_arg(ap, int), data);
 	else if (*str == 'x')
 		ft_putnbr_basex(va_arg(ap, int), 0, data);
 	else if (*str == 'X')
 		ft_putnbr_basex(va_arg(ap, int), 1, data);
 	else if (*str == '%')
-		ft_putchar(*str, data);
+		ft_putchar_lobby(*str, data);
 }
 
 int		ft_printf(const char *str, ...)

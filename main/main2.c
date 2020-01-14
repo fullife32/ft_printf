@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:48:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/13 17:36:09 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/14 15:47:37 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	main(void)
 	printf("%x et %X et %x", 123456, -1234567890, 0);
 	printf(" <- %d", printf("\n%p", NULL));
 	printf("\nBonjour %10s %-10s, %5c%-5c\n", "Salut", "ok", 'O', 'K');
-	printf("%10d et %5d", -47, 3);
+	printf("%-10d et %5d", -47, 3);
 	return (0);
 }
