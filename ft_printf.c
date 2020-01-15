@@ -6,13 +6,13 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/14 16:21:34 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/15 19:08:24 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_init_values(t_data *data)
+void		ft_init_values(t_data *data)
 {
 	data->width = -1;
 	data->precision = -1;
@@ -20,7 +20,7 @@ void	ft_init_values(t_data *data)
 	data->zero = -1;
 }
 
-int		ft_isarg(const char *str)
+int			ft_isarg(const char *str)
 {
 	if (*str == 'c' || *str == 's' || *str == 'p' || *str == 'd' || *str == 'i'
 	|| *str == 'u' || *str == 'x' || *str == 'X' || *str == '%')
@@ -45,7 +45,7 @@ const char	*ft_check_flags(const char *str, t_data *data)
 	return (str);
 }
 
-void	ft_check_arg(const char *str, t_data *data, va_list ap)
+void		ft_check_arg(const char *str, t_data *data, va_list ap)
 {
 	if (*str == 'c')
 		ft_putchar_lobby(va_arg(ap, int), data);
@@ -55,6 +55,10 @@ void	ft_check_arg(const char *str, t_data *data, va_list ap)
 		ft_putnbr_basep(va_arg(ap, long long), 1, data);
 	else if (*str == 'd' || *str == 'i' || *str == 'u')
 		ft_putnbr_lobby(va_arg(ap, int), data);
+	else if (*str == 'i')
+		ft_putnbr_lobby(va_arg(ap, int), data);
+	else if (*str == 'u')
+		ft_putnbr_lobby(va_arg(ap, unsigned int), data);
 	else if (*str == 'x')
 		ft_putnbr_basex(va_arg(ap, int), 0, data);
 	else if (*str == 'X')
@@ -63,7 +67,7 @@ void	ft_check_arg(const char *str, t_data *data, va_list ap)
 		ft_putchar_lobby(*str, data);
 }
 
-int		ft_printf(const char *str, ...)
+int			ft_printf(const char *str, ...)
 {
 	t_data	data;
 	va_list	ap;

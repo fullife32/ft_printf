@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/14 16:34:45 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/15 19:12:01 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,27 +69,4 @@ void	ft_putnbr_basex(int n, int up, t_data *data)
 		ft_putchar(HEXA_UPP[num % 16], data);
 	else if (up == 0)
 		ft_putchar(HEXA_LOW[num % 16], data);
-}
-
-int		ft_atoi(const char *str)
-{
-	int		i;
-	long	nb;
-	int		sign;
-
-	i = 0;
-	nb = 0;
-	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
-		i++;
-	sign = (str[i] == '-') ? -1 : 1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = nb * 10 + (str[i] - '0');
-		if (nb < 0)
-			return (sign == 1 ? -1 : 0);
-		i++;
-	}
-	return (sign * nb);
 }
