@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/16 15:37:33 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/16 16:42:37 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putnbr_lobby(long long n, int up, t_data *data)
 	int	count;
 
 	count = n < 0 ? ft_intcount(-n) + 1 : ft_intcount(n);
-	if (data->width != -1 && data->minus != 1)
+	if (data->width != 0 && data->minus != 1)
 		ft_putspaces(data->width - count, data);
 	if (up == -1)
 		ft_putnbr(n, data);
@@ -25,7 +25,7 @@ void	ft_putnbr_lobby(long long n, int up, t_data *data)
 		ft_putnbr_basexp((int)n, up, data);
 	else if (up == 2)
 		ft_putnbr_basexp(n, up, data);
-	if (data->width != -1 && data->minus == 1)
+	if (data->width != 0 && data->minus == 1)
 		ft_putspaces(data->width - count, data);
 }
 

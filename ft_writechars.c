@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 19:40:22 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/15 19:02:34 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/16 16:42:17 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_putchar_lobby(int c, t_data *data)
 {
-	if (data->width != -1 && data->minus != 1)
+	if (data->width != 0 && data->minus != 1)
 		ft_putspaces(data->width - 1, data);
 	ft_putchar(c, data);
-	if (data->width != -1 && data->minus == 1)
+	if (data->width != 0 && data->minus == 1)
 		ft_putspaces(data->width - 1, data);
 }
 
@@ -31,13 +31,13 @@ void	ft_putchar(int c, t_data *data)
 
 void	ft_putstr_lobby(char *s, t_data *data)
 {
-	if (data->width != -1 && data->minus != 1)
+	if (data->width != 0 && data->minus != 1)
 		ft_putspaces(data->width - ft_strlen(s), data);
 	if (s == NULL)
 		ft_putstr2("(null)", data);
 	else
 		ft_putstr2(s, data);
-	if (data->width != -1 && data->minus == 1)
+	if (data->width != 0 && data->minus == 1)
 		ft_putspaces(data->width - ft_strlen(s), data);
 }
 
@@ -54,8 +54,8 @@ void	ft_putstr2(char *s, t_data *data)
 
 void	ft_putspaces(int len, t_data *data)
 {
-	data->width = -1;
-	data->minus = -1;
+	data->width = 0;
+	data->minus = 0;
 	while (len-- > 0)
 		ft_putchar(' ', data);
 }
