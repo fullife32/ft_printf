@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/15 19:08:24 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/16 15:36:25 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,15 @@ void		ft_check_arg(const char *str, t_data *data, va_list ap)
 	else if (*str == 's')
 		ft_putstr_lobby(va_arg(ap, char *), data);
 	else if (*str == 'p')
-		ft_putnbr_basep(va_arg(ap, long long), 1, data);
-	else if (*str == 'd' || *str == 'i' || *str == 'u')
-		ft_putnbr_lobby(va_arg(ap, int), data);
-	else if (*str == 'i')
-		ft_putnbr_lobby(va_arg(ap, int), data);
+		ft_putnbr_lobby(va_arg(ap, long long), 2, data);
+	else if (*str == 'd' || *str == 'i')
+		ft_putnbr_lobby(va_arg(ap, int), -1, data);
 	else if (*str == 'u')
-		ft_putnbr_lobby(va_arg(ap, unsigned int), data);
+		ft_putnbr_lobby(va_arg(ap, unsigned int), -1, data);
 	else if (*str == 'x')
-		ft_putnbr_basex(va_arg(ap, int), 0, data);
+		ft_putnbr_lobby(va_arg(ap, int), 0, data);
 	else if (*str == 'X')
-		ft_putnbr_basex(va_arg(ap, int), 1, data);
+		ft_putnbr_lobby(va_arg(ap, int), 1, data);
 	else if (*str == '%')
 		ft_putchar_lobby(*str, data);
 }

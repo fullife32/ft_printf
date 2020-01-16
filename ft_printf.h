@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/15 19:12:09 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/16 15:35:21 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ typedef struct	s_data
 
 size_t			ft_strlen(const char *s);
 int				ft_intcount(unsigned long long n);
-void			ft_putnbr_lobby(long long n, t_data *data);
+void			ft_putnbr_lobby(long long n, int up, t_data *data);
 void			ft_putnbr(long long n, t_data *data);
-void			ft_putnbr_basep(long long n, int up, t_data *data);
-void			ft_putnbr_basex(int n, int up, t_data *data);
+// void			ft_putnbr_basep(long long n, int up, t_data *data);
+void			ft_putnbr_basexp(long long n, int up, t_data *data);
 int				ft_atoi(const char *str);
 void			ft_putchar_lobby(int c, t_data *data);
 void			ft_putchar(int c, t_data *data);
