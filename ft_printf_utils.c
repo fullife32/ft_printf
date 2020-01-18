@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:22:08 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/16 16:44:32 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:30:37 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[++i] != '\0')
 		;
 	return (i);
@@ -27,6 +29,8 @@ int		ft_intcount(unsigned long long n)
 	int	count;
 
 	count = 0;
+	if (n == 0)
+		return (1);
 	while (n != 0)
 	{
 		n /= 10;
@@ -43,7 +47,7 @@ int		ft_atoi(const char *str)
 
 	i = 0;
 	nb = 0;
-	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+	while (str[i] == '.')
 		i++;
 	sign = (str[i] == '-') ? -1 : 1;
 	if (str[i] == '-' || str[i] == '+')

@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:48:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/16 16:43:05 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:46:12 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ int	main(void)
 	// TESTS TAILLE DE CHAMP
 	printf("\nBonjour %10s %-10s, %5c%-5c\n", "Salut", "ok", 'O', 'K');
 	printf("%-10d et %5d", -47, 3);
-	printf("%s", NULL);
+	printf("%s\n", NULL);
+	printf("%20.5s\n", "suce mes boules");
+	printf("%10.0s\n", "suce mes boules");
+	printf("%.15s\n", "coco");
+	printf("%.%");
 	return (0);
 }

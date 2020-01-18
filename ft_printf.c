@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/16 16:43:36 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:47:11 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		ft_init_values(t_data *data)
 {
 	data->width = 0;
-	data->precision = 0;
+	data->precision = -1;
 	data->minus = 0;
 	data->zero = 0;
 }
@@ -35,15 +35,15 @@ const char	*ft_check_flags(const char *str, t_data *data)
 	{
 		if (*str == '-')
 			data->minus = 1;
-		if (*str == '.')
-		{
-			data->precision = ft_atoi(str);
-			str += ft_intcount(data->precision) - 1;
-		}
 		if (*str >= '0' && *str <= '9')
 		{
 			data->width = ft_atoi(str);
 			str += ft_intcount(data->width) - 1;
+		}
+		if (*str == '.')
+		{
+			data->precision = ft_atoi(str);
+			str += ft_intcount(data->precision) - 1;
 		}
 		str++;
 	}
@@ -52,6 +52,7 @@ const char	*ft_check_flags(const char *str, t_data *data)
 
 void		ft_check_arg(const char *str, t_data *data, va_list ap)
 {
+	// printf("char :::: %c %d\n", *str, data->precision);
 	if (*str == 'c')
 		ft_putchar_lobby(va_arg(ap, int), data);
 	else if (*str == 's')

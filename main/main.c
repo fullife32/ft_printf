@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:54:25 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/16 16:32:17 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:43:54 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,14 @@ int	main(void)
 	ft_printf(" => %d return size ---\n", ft_printf("--- return size salut c : %c s : %s s : %s p : %p d : %d i : %i u : %u x : %x X : %X %% : %%", c, "salut", NULL, NULL, 0, 10, -2147483647, 0, 10));
 	ft_printf("\n=== WIDTH TESTS ===\n\n");
 	// TESTS TAILLE DE CHAMP
+	
+	// AUTRES TESTS
 	ft_printf("\nBonjour %10s %-10s, %5c%-5c\n", "Salut", "ok", 'O', 'K');
 	ft_printf("%-10d et %5d", -47, 3);
-	ft_printf("%s", NULL);
+	ft_printf("%s\n", NULL);
+	// ft_printf("%20.5s\n", "suce mes boules");
+	// ft_printf("%10.0s\n", "suce mes boules");
+	// ft_printf("%.15s\n", "coco");
+	// ft_printf("%.%");
 	return (0);
 }
