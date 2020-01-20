@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/20 17:10:52 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/20 19:23:34 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ const char	*ft_check_flags(const char *str, t_data *data)
 			str += ft_intcount(data->width, 10) - 1;
 			if (*str >= '0' && *str <= '9')
 				str++;
+			if (data->minus == 1)
+				data->zero = 0;
 		}
 		if (*str == '.')
 		{

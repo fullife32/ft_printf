@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:48:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/20 16:11:35 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/20 19:34:52 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	main(void)
 	printf("%10.0s\n", "suce mes boules");
 	printf("%.15s\n", "coco");
 	printf("%.%\n");
-	printf("|%-2s|", "");
+	printf("|%6.20s|\n", "salut");
+	printf("%12.11d\n", 500);
+	printf("%08i", -71);
 	return (0);
 }
