@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/20 15:51:28 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/20 16:26:12 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ const char	*ft_check_flags(const char *str, t_data *data)
 
 void		ft_check_arg(const char *str, t_data *data, va_list ap)
 {
-	// printf("char :::: %c %d\n", *str, data->precision);
 	if (*str == 'c')
 		ft_putchar_lobby(va_arg(ap, int), data);
 	else if (*str == 's')
