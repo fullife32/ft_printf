@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:22:08 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/20 16:17:11 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/20 16:30:29 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int		ft_intcount(unsigned long long n)
+int		ft_intcount(unsigned long long n, int base)
 {
 	int	count;
 
@@ -33,7 +33,7 @@ int		ft_intcount(unsigned long long n)
 		return (1);
 	while (n != 0)
 	{
-		n /= 10;
+		n /= base;
 		count++;
 	}
 	return (count);
