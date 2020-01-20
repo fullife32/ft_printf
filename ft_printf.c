@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/20 16:34:13 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/20 17:10:52 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,22 @@ const char	*ft_check_flags(const char *str, t_data *data)
 			data->minus = 1;
 		if (*str >= '0' && *str <= '9')
 		{
-			//if point = 0
-			data->width = ft_atoi(str);
+			if (*str == '0')
+			{
+				str++;
+				if (*str >= '0' && *str <= '9')
+					data->zero = 1;
+				while (*str == '0')
+					str++;
+			}
+			if (*str >= '1' && *str <= '9')
+				data->width = ft_atoi(str);
 			str += ft_intcount(data->width, 10) - 1;
 			if (*str >= '0' && *str <= '9')
 				str++;
-			// if point = 1
-				// data->precision = ft_atoi(str);
-				//str += ft_intcount(data->precision) - 1;
 		}
 		if (*str == '.')
 		{
-			// var point = 1
 			str++;
 			data->precision = ft_atoi(str);
 			str += ft_intcount(data->precision, 10) - 1;
