@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:22:08 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/18 16:30:37 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/20 16:17:11 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ size_t	ft_strlen(const char *s)
 	i = 0;
 	if (!s)
 		return (0);
-	while (s[++i] != '\0')
-		;
+	while (s[i] != '\0')
+		i++;
 	return (i);
 }
 

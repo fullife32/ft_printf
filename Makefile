@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/10 01:03:03 by eassouli          #+#    #+#              #
-#    Updated: 2020/01/18 16:35:59 by eassouli         ###   ########.fr        #
+#    Updated: 2020/01/20 16:24:07 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ t: all
 	@gcc -g -Wall -Wextra -Werror libftprintf.a main/main.c -o mine.out
 	@./mine.out > result_mine
 	# @rm -f mine.out
-	@rm -rf mine.out.dSYM/
+	# @rm -rf mine.out.dSYM/
 	@gcc -Wall -Wextra -Werror main/main2.c -o real.out
 	@./real.out > result_real
 	@rm -f real.out

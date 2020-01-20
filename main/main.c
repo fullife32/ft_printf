@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:54:25 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/18 16:43:54 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/20 16:11:01 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ int	main(void)
 	ft_printf("\nBonjour %10s %-10s, %5c%-5c\n", "Salut", "ok", 'O', 'K');
 	ft_printf("%-10d et %5d", -47, 3);
 	ft_printf("%s\n", NULL);
-	// ft_printf("%20.5s\n", "suce mes boules");
-	// ft_printf("%10.0s\n", "suce mes boules");
-	// ft_printf("%.15s\n", "coco");
-	// ft_printf("%.%");
+	ft_printf("%20.5s\n", "suce mes boules");
+	ft_printf("%10.0s\n", "suce mes boules");
+	ft_printf("%.15s\n", "coco");
+	ft_printf("%.%\n");
+	ft_printf("|%-2s|", "");
 	return (0);
 }

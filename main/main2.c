@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:48:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/18 16:46:12 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/20 16:11:35 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,15 @@ int	main(void)
 	printf(" => %d return size ---\n", printf("--- return size salut c : %c s : %s s : %s p : %p d : %d i : %i u : %u x : %x X : %X %% : %%", c, "salut", NULL, NULL, 0, 10, -2147483647, 0, 10));
 	printf("\n=== WIDTH TESTS ===\n\n");
 	// TESTS TAILLE DE CHAMP
+
+	// AUTRES TESTS
 	printf("\nBonjour %10s %-10s, %5c%-5c\n", "Salut", "ok", 'O', 'K');
 	printf("%-10d et %5d", -47, 3);
 	printf("%s\n", NULL);
 	printf("%20.5s\n", "suce mes boules");
 	printf("%10.0s\n", "suce mes boules");
 	printf("%.15s\n", "coco");
-	printf("%.%");
+	printf("%.%\n");
+	printf("|%-2s|", "");
 	return (0);
 }
