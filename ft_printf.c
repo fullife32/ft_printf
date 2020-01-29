@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/20 19:23:34 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/29 18:09:47 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ int			ft_isarg(const char *str)
 	return (-1);
 }
 
-const char	*ft_check_flags(const char *str, t_data *data)
+const char	*ft_check_flags(const char *str, t_data *data, va_list ap)
 {
 	str++;
 	while (*str && ft_isarg(str) == -1)
 	{
 		if (*str == '-')
 			data->minus = 1;
-		if (*str >= '0' && *str <= '9')
+		if (*str == '*')
+			data->width = ft_atoi(va_arg(ap, int));
+		else if (*str >= '0' && *str <= '9')
 		{
 			if (*str == '0')
 			{
@@ -56,10 +58,15 @@ const char	*ft_check_flags(const char *str, t_data *data)
 		if (*str == '.')
 		{
 			str++;
-			data->precision = ft_atoi(str);
-			str += ft_intcount(data->precision, 10) - 1;
-			if (*str >= '0' && *str <= '9')
-				str++;
+			if (*str == '*')
+				data->precision = ft_atoi(va_arg(ap, int));
+			else
+			{
+				data->precision = ft_atoi(str);
+				str += ft_intcount(data->precision, 10) - 1;
+				if (*str >= '0' && *str <= '9')
+					str++;
+			}
 		}
 		if (ft_isarg(str) == -1)
 			str++;
@@ -100,7 +107,7 @@ int			ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			str = ft_check_flags(str, &data);
+			str = ft_check_flags(str, &data, ap);
 			ft_check_arg(str, &data, ap);
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:22:08 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/20 16:30:29 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/29 18:03:22 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,11 @@ int		ft_atoi(const char *str)
 		i++;
 	}
 	return (sign * nb);
+}
+
+void	ft_writebuffer(t_data *data)
+{
+	write(1, &data->buffer, data->index);
+	data->size += data->index;
+	data->index = 0;
 }
