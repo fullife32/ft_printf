@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 19:40:22 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/20 19:24:13 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/29 16:58:02 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,17 @@
 void	ft_putchar_lobby(int c, t_data *data)
 {
 	if (data->width != 0 && data->minus != 1)
-		ft_putzerospaces(data->width - 1, ' ', data);
+		if (!(data->zero == 1))
+			ft_putzerospaces(data->width - 1, ' ', data);
+	if (data->zero == 1)
+	{
+		ft_putzerospaces(data->width - 1, '0', data);
+		data->width = 0;
+	}
 	ft_putchar(c, data);
 	if (data->width != 0 && data->minus == 1)
-		ft_putzerospaces(data->width - 1, ' ', data);
+		if (!(data->zero == 1))
+			ft_putzerospaces(data->width - 1, ' ', data);
 }
 
 void	ft_putchar(int c, t_data *data)
@@ -32,7 +39,6 @@ void	ft_putchar(int c, t_data *data)
 void	ft_putstr_lobby(char *s, t_data *data)
 {
 	int	width;
-	// printf("%d %d %s\n", data->width, data->minus, s);
 
 	if (s == NULL)
 		s = "(null)";
@@ -58,8 +64,10 @@ void	ft_putstr2(char *s, t_data *data)
 
 void	ft_putzerospaces(int len, char c, t_data *data)
 {
-	if (c == ' ')
+	if (c == ' ' || data->zero == 1)
 		data->width = 0;
+	if (c == '0' && data->zero == 0)
+		data->precision = -1;
 	while (len-- > 0)
 		ft_putchar(c, data);
 }
