@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/29 18:09:47 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/29 18:12:26 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ const char	*ft_check_flags(const char *str, t_data *data, va_list ap)
 		if (*str == '-')
 			data->minus = 1;
 		if (*str == '*')
-			data->width = ft_atoi(va_arg(ap, int));
-		else if (*str >= '0' && *str <= '9')
+			data->width = va_arg(ap, int);
+		if (*str >= '0' && *str <= '9')
 		{
 			if (*str == '0')
 			{
@@ -59,7 +59,7 @@ const char	*ft_check_flags(const char *str, t_data *data, va_list ap)
 		{
 			str++;
 			if (*str == '*')
-				data->precision = ft_atoi(va_arg(ap, int));
+				data->precision = va_arg(ap, int);
 			else
 			{
 				data->precision = ft_atoi(str);

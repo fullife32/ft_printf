@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/10 01:03:03 by eassouli          #+#    #+#              #
-#    Updated: 2020/01/20 16:24:07 by eassouli         ###   ########.fr        #
+#    Updated: 2020/01/29 18:12:46 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ SRCS		=	ft_printf.c \
 				ft_writenum.c \
 				ft_writechars.c \
 				ft_printf_utils.c \
-				ft_buffer.c
 
 OBJS		= $(SRCS:.c=.o)
 
