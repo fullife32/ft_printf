@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/29 17:17:36 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/29 18:34:46 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	ft_putnbr_lobby(long long n, int up, t_data *data)
 		if (!(n == 0 && data->precision == 0))
 			ft_putnbr_basexp((int)n, up, data);
 	if (up == 2)
-		ft_putnbr_basexp(n, up, data);
+		if (!(data->zero == 1 && data->precision == -1))
+			ft_putnbr_basexp(n, up, data);
 	if (data->width != 0 && data->minus == 1 && data->zero == 0)
 		ft_putzerospaces(data->width - count, ' ', data);
 }

@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 19:40:22 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/29 16:58:02 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/01/29 18:20:46 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void	ft_putstr_lobby(char *s, t_data *data)
 
 void	ft_putstr2(char *s, t_data *data)
 {
+	if (data->zero == 1)
+	{
+		ft_putzerospaces(data->width - ft_strlen(s), '0', data);
+		data->width = 0;
+	}
 	while (s != NULL && *s && data->precision != 0)
 	{
 		ft_putchar(*s++, data);
