@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/29 18:39:37 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/05 20:27:40 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,7 @@ const char	*ft_check_flags(const char *str, t_data *data, va_list ap)
 	str++;
 	while (*str && ft_isarg(str) == -1)
 	{
-		if (*str == '-')
-			data->minus = 1;
-		if (*str == '*')
-			data->width = va_arg(ap, int);
-		if (*str >= '0' && *str <= '9')
+		if ((*str >= '0' && *str <= '9'))
 		{
 			if (*str == '0')
 			{
@@ -49,10 +45,14 @@ const char	*ft_check_flags(const char *str, t_data *data, va_list ap)
 			}
 			if (*str >= '1' && *str <= '9')
 				data->width = ft_atoi(str);
+			else if (*str == '*')
+				data->width = va_arg(ap, int);
 			str += ft_intcount(data->width, 10) - 1;
 			if (*str >= '0' && *str <= '9')
 				str++;
 		}
+		else if (*str == '*')
+				data->width = va_arg(ap, int);
 		if (*str == '.')
 		{
 			str++;
@@ -66,8 +66,8 @@ const char	*ft_check_flags(const char *str, t_data *data, va_list ap)
 					str++;
 			}
 		}
-		if (data->minus == 1)
-				data->zero = 0;
+		if (*str == '-')
+			data->minus = 1;
 		if (ft_isarg(str) == -1)
 			str++;
 	}

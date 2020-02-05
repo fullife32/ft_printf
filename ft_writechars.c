@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 19:40:22 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/29 18:20:46 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/05 18:59:36 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putchar_lobby(int c, t_data *data)
 {
+	if (data->minus == 1)
+		data->zero = 0;
 	if (data->width != 0 && data->minus != 1)
 		if (!(data->zero == 1))
 			ft_putzerospaces(data->width - 1, ' ', data);
