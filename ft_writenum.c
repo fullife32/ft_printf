@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/07 15:39:37 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/07 20:02:08 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	ft_putnbr_basexp(long long n, int up, t_data *data)
 	}
 	if (up == 2 && (up = 3))
 	{
-		ft_putstr2("0x", data);
+		ft_putchar_printf("0x", data);
 		if (data->precision != -1)
 			data->precision += 2;
 	}

@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/07 15:31:10 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/07 19:54:48 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void		ft_check_arg(const char *str, t_data *data, va_list ap)
 		ft_putnbr_lobby(va_arg(ap, int), 1, data);
 	else if (*str == '%')
 		ft_putchar_lobby(*str, data);
+	else
+		ft_putchar_lobby(*str, data);
+	
 }
 
 int			ft_printf(const char *str, ...)

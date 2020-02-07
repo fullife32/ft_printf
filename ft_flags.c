@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:30:45 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/07 15:32:57 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/07 20:00:39 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ const char		*ft_check_flags(const char *str, t_data *data, va_list ap)
 			data->minus = 1;
 			data->zero = 0;
 		}
+		if (ft_isarg(str) == -1 && !(*str >= '0' && *str <= '9')
+		&& *str != '.' && *str != '*' && *str != '-')
+			return (str);
 		if (ft_isarg(str) == -1)
 			str++;
 	}
