@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 20:54:25 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/29 17:09:23 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/07 14:15:09 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int	main(void)
 	ft_printf("|%6.20s|\n", "salut");
 	ft_printf("%12.11d\n", 500);
 	ft_printf("%04d", 0);
+	ft_printf("%09s", "hi low");
 	return (0);
 }

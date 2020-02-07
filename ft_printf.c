@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/05 20:27:40 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:31:10 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,52 +26,6 @@ int			ft_isarg(const char *str)
 	|| *str == 'u' || *str == 'x' || *str == 'X' || *str == '%')
 		return (1);
 	return (-1);
-}
-
-const char	*ft_check_flags(const char *str, t_data *data, va_list ap)
-{
-	str++;
-	while (*str && ft_isarg(str) == -1)
-	{
-		if ((*str >= '0' && *str <= '9'))
-		{
-			if (*str == '0')
-			{
-				str++;
-				if ((*str >= '0' && *str <= '9') || *str == '*')
-					data->zero = 1;
-				while (*str == '0')
-					str++;
-			}
-			if (*str >= '1' && *str <= '9')
-				data->width = ft_atoi(str);
-			else if (*str == '*')
-				data->width = va_arg(ap, int);
-			str += ft_intcount(data->width, 10) - 1;
-			if (*str >= '0' && *str <= '9')
-				str++;
-		}
-		else if (*str == '*')
-				data->width = va_arg(ap, int);
-		if (*str == '.')
-		{
-			str++;
-			if (*str == '*')
-				data->precision = va_arg(ap, int);
-			else
-			{
-				data->precision = ft_atoi(str);
-				str += ft_intcount(data->precision, 10) - 1;
-				if (*str >= '0' && *str <= '9')
-					str++;
-			}
-		}
-		if (*str == '-')
-			data->minus = 1;
-		if (ft_isarg(str) == -1)
-			str++;
-	}
-	return (str);
 }
 
 void		ft_check_arg(const char *str, t_data *data, va_list ap)

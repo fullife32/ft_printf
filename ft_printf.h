@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2020/01/29 18:12:13 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:19:14 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ int				ft_isarg(const char *str);
 const char		*ft_check_flags(const char *str, t_data *data, va_list ap);
 void			ft_check_arg(const char *str, t_data *data, va_list ap);
 int				ft_printf(const char *str, ...);
+
+const char		*ft_def_width(const char *str, t_data *data, va_list ap);
+const char		*ft_def_precision(const char *str, t_data *data, va_list ap);
 
 size_t			ft_strlen(const char *s);
 int				ft_intcount(unsigned long long n, int base);

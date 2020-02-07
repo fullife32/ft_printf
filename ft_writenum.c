@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/05 18:41:51 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:39:37 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	ft_putnbr_lobby(long long n, int up, t_data *data)
 		count = n < 0 ? ft_intcount(-n, 10) + 1 : ft_intcount(n, 10);
 		if (data->precision > count)
 			count = n < 0 ? data->precision + 1 : data->precision;
+		if (data->precision == 0 && n == 0)
+			count--;
 	}
 	else
 	{
@@ -81,6 +83,12 @@ void	ft_putnbr_basexp(long long n, int up, t_data *data)
 		numx = n;
 		num = numx;
 	}
+	if (up == 2 && (up = 3))
+	{
+		ft_putstr2("0x", data);
+		if (data->precision != -1)
+			data->precision += 2;
+	}
 	if (data->precision != -1)
 	{
 		ft_putzerospaces(data->precision - ft_intcount(num, 16), '0', data);
@@ -88,8 +96,6 @@ void	ft_putnbr_basexp(long long n, int up, t_data *data)
 	}
 	if (data->zero == 1)
 		ft_putzerospaces(data->width - ft_intcount(num, 16), '0', data);
-	if (up == 2 && (up = 3))
-		ft_putstr2("0x", data);
 	if (num >= 16)
 	{
 		ft_putnbr_basexp(num / 16, up, data);
