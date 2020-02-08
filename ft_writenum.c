@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/07 20:02:08 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/08 19:40:32 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putnbr_lobby(long long n, int up, t_data *data)
 	if (up == -1)
 	{
 		count = n < 0 ? ft_intcount(-n, 10) + 1 : ft_intcount(n, 10);
-		if (data->precision > count)
+		if (data->precision >= count)
 			count = n < 0 ? data->precision + 1 : data->precision;
 		if (data->precision == 0 && n == 0)
 			count--;
@@ -27,8 +27,10 @@ void	ft_putnbr_lobby(long long n, int up, t_data *data)
 	else
 	{
 		count = n < 0 ? ft_intcount(-n, 16) + 1 : ft_intcount(n, 16);
-		if (data->precision > count)
-			count = data->precision;
+		if (data->precision >= count)
+			count = n < 0 ? data->precision + 1 : data->precision;
+		if (data->precision == 0 && n == 0)
+			count--;
 	}
 	count = up == 2 ? count + 2 : count;
 	if (data->width != 0 && data->minus != 1)
