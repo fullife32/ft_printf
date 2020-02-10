@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:30:45 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/10 09:42:11 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/10 14:48:57 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 const char		*check_flags(const char *str, t_data *data, va_list ap)
 {
 	str++;
-	while (*str && isarg(str) == -1)
+	while (*str && isarg(*str) == -1)
 	{
 		if ((*str >= '0' && *str <= '9') || *str == '*')
 			str = def_width(str, data, ap);
@@ -26,10 +26,10 @@ const char		*check_flags(const char *str, t_data *data, va_list ap)
 			data->minus = 1;
 			data->zero = 0;
 		}
-		if (isarg(str) == -1 && !(*str >= '0' && *str <= '9')
+		if (isarg(*str) == -1 && !(*str >= '0' && *str <= '9')
 		&& *str != '.' && *str != '*' && *str != '-')
 			return (str);
-		if (isarg(str) == -1)
+		if (isarg(*str) == -1)
 			str++;
 	}
 	return (str);

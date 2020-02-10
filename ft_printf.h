@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/10 09:45:00 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/10 14:47:38 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define BUFFER_SIZE 128
 # define HEXA_LOW "0123456789abcdef"
 # define HEXA_UPP "0123456789ABCDEF"
+# define ARGS "cspdiuxX%"
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -33,7 +34,7 @@ typedef struct	s_data
 }				t_data;
 
 void			init_values(t_data *data);
-int				isarg(const char *str);
+int				isarg(int c);
 void			check_arg(const char *str, t_data *data, va_list ap);
 int				ft_printf(const char *str, ...);
 

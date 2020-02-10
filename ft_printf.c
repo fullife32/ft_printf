@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/10 09:43:21 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/10 15:01:19 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ void		init_values(t_data *data)
 	data->zero = 0;
 }
 
-int			isarg(const char *str)
+int			isarg(int c)
 {
-	if (*str == 'c' || *str == 's' || *str == 'p' || *str == 'd' || *str == 'i'
-	|| *str == 'u' || *str == 'x' || *str == 'X' || *str == '%')
-		return (1);
+	int	i;
+
+	i = 0;
+	while (ARGS[i] != 0)
+		if (c == ARGS[i++])
+			return (1);
 	return (-1);
 }
 
