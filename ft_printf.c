@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:17:49 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/10 15:01:19 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/10 19:15:08 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		check_arg(const char *str, t_data *data, va_list ap)
 	else if (*str == 's')
 		putstr_lobby(va_arg(ap, char *), data);
 	else if (*str == 'p')
-		putnbr_lobby(va_arg(ap, long long), 2, data);
+		putnbr_lobby(va_arg(ap, unsigned long long), 2, data);
 	else if (*str == 'd' || *str == 'i')
 		putnbr_lobby(va_arg(ap, int), -1, data);
 	else if (*str == 'u')

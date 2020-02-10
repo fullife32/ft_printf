@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:18:42 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/10 09:44:54 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/10 19:15:56 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,8 @@ void	putnbr_basex(unsigned int n, int up, t_data *data)
 		putchar_printf(HEXA_LOW[n % 16], data);
 }
 
-void	putnbr_basep(long long n, int up, t_data *data)
+void	putnbr_basep(unsigned long long n, int up, t_data *data)
 {
-	unsigned long long		num;
-
-	num = n < 0 ? -n : n;
 	if (up == 2 && (up = 3))
 	{
 		if (data->precision != -1)
@@ -112,13 +109,13 @@ void	putnbr_basep(long long n, int up, t_data *data)
 	{
 		if (data->precision != -1)
 		{
-			putzerospaces(data->precision - intcount(num, 16), '0', data);
+			putzerospaces(data->precision - intcount(n, 16), '0', data);
 			data->precision = -1;
 		}
 		if (data->zero == 1)
-			putzerospaces(data->width - intcount(num, 16), '0', data);
-		if (num >= 16)
-			putnbr_basep(num / 16, up, data);
-		putchar_printf(HEXA_LOW[num % 16], data);
+			putzerospaces(data->width - intcount(n, 16), '0', data);
+		if (n >= 16)
+			putnbr_basep(n / 16, up, data);
+		putchar_printf(HEXA_LOW[n % 16], data);
 	}
 }

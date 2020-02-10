@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:01:06 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/10 14:47:38 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/10 19:15:23 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void			putnbr_lobby(long long n, int up, t_data *data);
 int				width_size(long long n, int up, t_data *data);
 void			putnbr_printf(long long n, t_data *data);
 void			putnbr_basex(unsigned int n, int up, t_data *data);
-void			putnbr_basep(long long n, int up, t_data *data);
+void			putnbr_basep(unsigned long long n, int up, t_data *data);
 
 #endif
