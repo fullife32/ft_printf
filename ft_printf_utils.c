@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 20:22:08 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/08 20:26:53 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/10 09:38:05 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int		ft_intcount(unsigned long long n, int base)
+int		intcount(unsigned long long n, int base)
 {
 	int	count;
 
@@ -39,7 +39,7 @@ int		ft_intcount(unsigned long long n, int base)
 	return (count);
 }
 
-int		ft_atoi(const char *str)
+int		atoi_printf(const char *str)
 {
 	int		i;
 	int		sign;
@@ -60,7 +60,7 @@ int		ft_atoi(const char *str)
 	return (sign * nb);
 }
 
-void	ft_writebuffer(t_data *data)
+void	writebuffer(t_data *data)
 {
 	write(1, &data->buffer, data->index);
 	data->size += data->index;

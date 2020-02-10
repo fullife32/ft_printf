@@ -6,32 +6,32 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 19:40:22 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/09 22:53:40 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/10 09:43:11 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_lobby(int c, t_data *data)
+void	putchar_lobby(int c, t_data *data)
 {
 	if (data->zero == 1)
-		ft_putzerospaces(data->width - 1, '0', data);
+		putzerospaces(data->width - 1, '0', data);
 	else if (data->width != 0 && data->minus != 1)
-		ft_putzerospaces(data->width - 1, ' ', data);
-	ft_putchar(c, data);
+		putzerospaces(data->width - 1, ' ', data);
+	putchar_printf(c, data);
 	if (data->width != 0 && data->minus == 1)
-		ft_putzerospaces(data->width - 1, ' ', data);
+		putzerospaces(data->width - 1, ' ', data);
 }
 
-void	ft_putchar(int c, t_data *data)
+void	putchar_printf(int c, t_data *data)
 {
 	if (data->index == BUFFER_SIZE)
-		ft_writebuffer(data);
+		writebuffer(data);
 	data->buffer[data->index] = c;
 	data->index++;
 }
 
-void	ft_putstr_lobby(char *s, t_data *data)
+void	putstr_lobby(char *s, t_data *data)
 {
 	int	width;
 
@@ -42,29 +42,29 @@ void	ft_putstr_lobby(char *s, t_data *data)
 	else
 		width = data->width - ft_strlen(s);
 	if (data->zero == 1)
-		ft_putzerospaces(width, '0', data);
+		putzerospaces(width, '0', data);
 	if (data->width != 0 && data->minus != 1)
-		ft_putzerospaces(width, ' ', data);
-	ft_putstr_printf(s, data);
+		putzerospaces(width, ' ', data);
+	putstr_printf(s, data);
 	if (data->width != 0 && data->minus == 1)
-		ft_putzerospaces(width, ' ', data);
+		putzerospaces(width, ' ', data);
 }
 
-void	ft_putstr_printf(char *s, t_data *data)
+void	putstr_printf(char *s, t_data *data)
 {
 	while (s != NULL && *s && data->precision != 0)
 	{
-		ft_putchar(*s++, data);
+		putchar_printf(*s++, data);
 		data->precision--;
 	}
 }
 
-void	ft_putzerospaces(int len, char c, t_data *data)
+void	putzerospaces(int len, char c, t_data *data)
 {
 	if (c == ' ' || data->zero == 1)
 		data->width = 0;
 	if (c == '0' && data->zero == 0)
 		data->precision = -1;
 	while (len-- > 0)
-		ft_putchar(c, data);
+		putchar_printf(c, data);
 }
