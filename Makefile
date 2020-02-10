@@ -6,7 +6,7 @@
 #    By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/10 01:03:03 by eassouli          #+#    #+#              #
-#    Updated: 2020/02/10 09:51:18 by eassouli         ###   ########.fr        #
+#    Updated: 2020/02/10 15:04:27 by eassouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CC			= gcc
 
 FLAGS		= -Wall -Wextra -Werror -I $(HEADER)
 
-HEADER		= libftprintf.h
+HEADER		= .
 
 RM			= rm -f
 
