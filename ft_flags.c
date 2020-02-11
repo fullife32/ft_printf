@@ -6,7 +6,7 @@
 /*   By: eassouli <eassouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:30:45 by eassouli          #+#    #+#             */
-/*   Updated: 2020/02/10 14:48:57 by eassouli         ###   ########.fr       */
+/*   Updated: 2020/02/11 16:30:41 by eassouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ const char		*check_flags(const char *str, t_data *data, va_list ap)
 		if (*str == '.')
 			str = def_precision(str, data, ap);
 		if (*str == '-')
-		{
 			data->minus = 1;
+		if (data->minus == 1)
 			data->zero = 0;
-		}
 		if (isarg(*str) == -1 && !(*str >= '0' && *str <= '9')
 		&& *str != '.' && *str != '*' && *str != '-')
 			return (str);
@@ -41,14 +40,13 @@ const char		*def_width(const char *str, t_data *data, va_list ap)
 	{
 		str++;
 		if ((*str >= '0' && *str <= '9') || *str == '*')
-			if (data->minus == 0)
-				data->zero = 1;
+			data->zero = 1;
 		while (*str == '0')
 			str++;
 	}
-	if (*str >= '0' && *str <= '9')
+	if (*str >= '1' && *str <= '9')
 		data->width = atoi_printf(str);
-	else if (*str == '*')
+	if (*str == '*')
 		data->width = va_arg(ap, int);
 	if (data->width < 0)
 	{
@@ -56,7 +54,7 @@ const char		*def_width(const char *str, t_data *data, va_list ap)
 		data->minus = 1;
 		data->zero = 0;
 	}
-	while (*str >= '0' && *str <= '9')
+	while ((*str >= '0' && *str <= '9') || *str == '*')
 		str++;
 	return (str);
 }
